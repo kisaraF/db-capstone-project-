@@ -1,7 +1,9 @@
 # DB Capstone Project (Little Lemon)
 
 [ER Diagram](#erd)
+
 [Stored Procedures](#stp)
+
 [ER Diagram](#erd)
 [ER Diagram](#erd)
 [ER Diagram](#erd)
