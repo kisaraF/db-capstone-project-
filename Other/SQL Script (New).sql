@@ -15,13 +15,31 @@ CREATE SCHEMA IF NOT EXISTS `LittleLemonDB` DEFAULT CHARACTER SET utf8 ;
 USE `LittleLemonDB` ;
 
 -- -----------------------------------------------------
+-- Table `LittleLemonDB`.`MenuItems`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`MenuItems` (
+  `ItemID` INT NOT NULL,
+  `ItemName` VARCHAR(75) NOT NULL,
+  `Type` VARCHAR(45) NOT NULL,
+  `Price` INT NOT NULL,
+  PRIMARY KEY (`ItemID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `LittleLemonDB`.`Menu`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`Menu` (
   `MenuID` INT NOT NULL,
+  `ItemID` INT NOT NULL,
   `Cuisine` VARCHAR(75) NOT NULL,
-  `ItemName` VARCHAR(125) NOT NULL,
-  PRIMARY KEY (`MenuID`))
+  PRIMARY KEY (`MenuID`, `ItemID`),
+  INDEX `menuitem_fk_idx` (`ItemID` ASC) VISIBLE,
+  CONSTRAINT `menuitem_fk`
+    FOREIGN KEY (`ItemID`)
+    REFERENCES `LittleLemonDB`.`MenuItems` (`ItemID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -81,19 +99,19 @@ CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`Orders` (
   `OrderDate` DATE NOT NULL,
   `Quantity` INT NOT NULL,
   `TotalCost` DECIMAL(6,2) NOT NULL,
-  `MenuID` INT NOT NULL,
+  `ItemID` INT NOT NULL,
   `BookingID` INT NOT NULL,
   PRIMARY KEY (`OrderID`),
   INDEX `booking_fk_idx` (`BookingID` ASC) VISIBLE,
-  INDEX `menu_fk_idx` (`MenuID` ASC) VISIBLE,
+  INDEX `menuitems_fk_idx` (`ItemID` ASC) VISIBLE,
   CONSTRAINT `booking_fk`
     FOREIGN KEY (`BookingID`)
     REFERENCES `LittleLemonDB`.`Bookings` (`BookingID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `menu_fk`
-    FOREIGN KEY (`MenuID`)
-    REFERENCES `LittleLemonDB`.`Menu` (`MenuID`)
+  CONSTRAINT `menuitems_fk`
+    FOREIGN KEY (`ItemID`)
+    REFERENCES `LittleLemonDB`.`MenuItems` (`ItemID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
