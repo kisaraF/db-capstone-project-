@@ -21,9 +21,7 @@
 * [Python DB Client](#pyc)
     * [Connect to MySQL DB](#connect) 
     * [Show Tables](#showt) 
-    * [Query with Join](#join1) 
-    * [Cuisine Sales and Profits](#chart4) 
-    * [Dashboard](#chart5) 
+    * [Query with Join](#join1)
 
 
 ## <a name= "erd"></a>ER Diagram
@@ -38,6 +36,7 @@ BEGIN
 SELECT MAX(Quantity) AS 'Max Quantity In Order' FROM Orders;
 ```
 ***Working Proof:***
+
 <img width="478" alt="4" src="https://github.com/user-attachments/assets/5b0e4592-d37a-4fce-ba61-2ad0fd15f3a3">
 
 ### <a name= "getorder"></a>GetOrderDetail()
@@ -49,6 +48,7 @@ JOIN Orders o ON o.BookingID = b.BookingID
 WHERE c.CustomerID = ?';
 ```
 ***Working Proof:***
+
 <img width="947" alt="5" src="https://github.com/user-attachments/assets/61d722b0-d1f3-4dd2-adc6-e111fd35d96d">
 
 ### <a name= "cancelorder"></a>CancelOrder()
@@ -59,6 +59,7 @@ DELETE FROM Orders WHERE OrderID = order_id;
 END//
 ```
 ***Working Proof:***
+
 <img width="430" alt="6" src="https://github.com/user-attachments/assets/f15d774a-ab1e-476a-8e35-d84d90d929f2">
 
 ## <a name= "bookcheck"></a>Checking Bookings
@@ -78,6 +79,7 @@ SELECT table_status AS 'Booking Status';
 END//
 ```
 ***Working Proof:***
+
 <img width="942" alt="7" src="https://github.com/user-attachments/assets/a4993866-05f6-47db-af2e-2914bba6b447">
 
 ### <a name= "addvalid"></a>AddValidBooking()
@@ -92,6 +94,7 @@ END IF;
 END //
 ```
 ***Working Proof:***
+
 <img width="943" alt="9" src="https://github.com/user-attachments/assets/42783655-6618-4161-af69-df7e79f19622">
 
 ## <a name= "crud"></a>CRUD operations
@@ -105,6 +108,7 @@ SELECT "New Booking Added" AS Confirmation;
 END//
 ```
 ***Working Proof:***
+
 <img width="943" alt="10" src="https://github.com/user-attachments/assets/033cdf68-05ca-4453-9306-48f81fa586c8">
 
 ### <a name= "updatebooking"></a>UpdateBooking()
@@ -116,6 +120,7 @@ SELECT CONCAT('Booking ', booking_id, ' updated') AS Confirmation;
 END//
 ```
 ***Working Proof:***
+
 <img width="565" alt="11" src="https://github.com/user-attachments/assets/e402e928-1889-4199-8e33-6f97802a5b44">
 
 ### <a name= "cancelBooking"></a>CancelBooking()
@@ -127,6 +132,7 @@ SELECT CONCAT('Booking ', booking_id, ' cancelled') AS Confirmation;
 END//
 ```
 ***Working Proof:***
+
 <img width="564" alt="12" src="https://github.com/user-attachments/assets/87b7b4f9-062f-4d9b-92c1-70a0eabd9d2c">
 
 ## <a name= "tbviz"></a>Tableau Vizs
