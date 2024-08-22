@@ -22,6 +22,7 @@
     * [Connect to MySQL DB](#connect) 
     * [Show Tables](#showt) 
     * [Query with Join](#join1)
+* [Justifications](#jus)
 
 
 ## <a name= "erd"></a>ER Diagram
@@ -162,3 +163,12 @@ END//
 
 ### <a name= "join1"></a>Query with Join
 <img width="389" alt="D3" src="https://github.com/user-attachments/assets/bb826d17-9483-445d-84fa-1034ae181255">
+
+## <a name= "jus"></a>Justifications
+* Every task assigned by the capstone project throughout each module has been included here
+* ERD tables are designed as per course requirements in module 01 exercise
+<img width="574" alt="Just 1" src="https://github.com/user-attachments/assets/873d2a89-180c-4736-a654-beeeda487002">
+
+* Function outputs may not give the same output since the data used to populate is different as the course did only gave a dataset for visualizations in module 3 (SQL Script and Data used to populate are included as well )
+* Some functions like `ManageBooking()` were mentioned only at module 04. Maybe it's a naming mistake where they mention `CheckBooking()` as `ManageBooking()`. 
+* #### Thank you for reviewing
